@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eureka-server         #执行服务名称
+server:
+  port: 8081                    #指定服务端口号
+eureka:
+  instance:
+    hostname: replica1         #指定host名称
+  client:
+    service-url:
+      defaultZone: http://replica2:8082/eureka/,http://replica3:8083/eureka #设置与Eureka Server交互地址，服务的注册和查询都要依赖这个地址

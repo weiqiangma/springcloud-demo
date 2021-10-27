@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: eureka-server         #执行服务名称
