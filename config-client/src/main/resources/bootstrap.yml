@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      name: config-client # 对应 {application} 部分
+      profile: dev # 对应 {profile} 部分
+      label: master # 对应 {label} 部分，即 Git 的分支。如果配置中心使用的是本地存储，则该参数无用
+      discovery:
+        enabled: true
+        service-id: config-server
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://replica1:8081/eureka,http://replica2:8082/eureka,http://replica3:8083/eureka

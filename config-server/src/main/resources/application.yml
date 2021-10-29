@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/mawkun/config-repository.git #指定仓库地址
+          search-paths: cloud-demo                                   #仓库内文件路径
+          default-label: master                                        #指定分支名称
+          skip-ssl-validation: true                                  #跳过ssl验证
+server:
+  port: 8090
+eureka:
+  client:
+    service-url:
+      defaultZone: http://replica1:8081/eureka,http://replica2:8082/eureka,http://replica3:8083/eureka

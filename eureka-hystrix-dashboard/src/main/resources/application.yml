@@ -1,10 +1,11 @@
-server:
-  port: 8087
 spring:
   application:
-    name: hystrix-dashboard
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhaoyibo/spring-cloud-study
+          search-paths: config-repo
+server:
+  port: 8090
