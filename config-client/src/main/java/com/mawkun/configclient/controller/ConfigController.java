@@ -18,6 +18,7 @@ public class ConfigController {
 
     @RequestMapping("/info")
     public Mono<String> info() {
+        System.out.println("");
         return Mono.justOrEmpty(profile);
     }
 }

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: eureka-gateway
+server:
+  port: 8092
+eureka:
+  client:
+    service-url:
+      defaultZone: http://replica1:8081/eureka,http://replica2:8082/eureka,http://replica3:8083/eureka
