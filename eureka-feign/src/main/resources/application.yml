@@ -6,7 +6,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://replica1:8081/eureka,http://replica2:8082/eureka,http://replica3:8083/eureka
+      defaultZone: http://localhost:8080/eureka/
 feign:
   hystrix:
     enabled: true
