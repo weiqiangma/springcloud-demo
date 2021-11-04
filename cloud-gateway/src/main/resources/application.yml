@@ -1,0 +1,28 @@
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true           #根据注册中心自动注册路由，默认false，重启后生效
+      routes:                     #路由配置
+       - id: service_customer      #定义的路由ID
+         uri: lb://EUREKA-FEIGN   #路由目标路径
+         order: 0
+         predicates:
+          - Path=/customer/**      #匹配路径
+          - Method=GET             #指定请求方式
+         filters:
+          - StripPrefix=1          #除去第一个级前缀
+          - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+server:
+  port: 8010
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
